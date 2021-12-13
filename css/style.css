@@ -1,0 +1,112 @@
+:root {
+    --head-col: #f81bab;
+    --text-col: #e272bb;
+    --back-col: rgb(49, 49, 49);
+    --bord-col: rgb(172, 172, 172);
+    --main-gap: 15px;
+    --arti-gap: 10px;
+    --bord-rad: 5px;
+    --arti-head-push-up: -25px;
+    --main-margin: 15px;
+    --arti-bord-wid: 2px;
+    --arti-head-bord-wid: 2px;
+    --arti-margin-top: calc(calc(var(--arti-head-push-up) * -1) - calc(var(--arti-padding) + var(--arti-bord-wid)));
+    --arti-padding:10px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: all 0.5s ease;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+body{
+    background-color: var(--back-col);
+}
+header{
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+header h1 {
+    color: var(--head-col);
+    text-align: center;
+}
+header p {
+    color: var(--bord-col);
+    text-align: center;
+}
+main{
+    display: flex;
+    flex-wrap: wrap;
+    margin: var(--main-margin);
+    gap: var(--main-gap);
+}
+article{
+    border: var(--arti-bord-wid) dashed var(--bord-col);
+    display: flex;
+    flex-direction: column;
+    padding: var(--arti-padding);
+    width: calc(100%/3 - calc(2*var(--main-gap)));
+    margin-top: var(--arti-margin-top);
+    gap: var(--arti-gap);
+    flex-grow: 1;
+}
+article h3 {
+    padding: 5px;
+    background-color: var(--back-col);
+    color: var(--head-col);
+    border: var(--arti-head-bord-wid) solid var(--bord-col);
+    border-radius: var(--bord-rad);
+    position: relative;
+    margin-top: var(--arti-head-push-up);
+}
+article p {
+    color: var(--text-col);
+    flex-shrink: 1;
+}
+article div {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(var(--head-col) 0%, var(--text-col) 100%);
+    border-radius: var(--bord-rad);
+    padding: 5px;
+    flex-grow: 1;
+    -moz-user-select: all;
+    -webkit-user-select: all;
+    -ms-user-select: all;
+    user-select: all;
+}
+article pre {
+    color: white;
+}
+
+article pre::selection{
+    background-color: aqua;
+    color: black;
+}
+article:hover, article:hover h3{
+    box-shadow: 0 0 20px var(--head-col);
+}
+
+footer{
+    color: var(--text-col);
+    padding: 20px;
+    margin: auto;
+    max-width: 300px;
+    text-align: center;
+}
+
+@media screen and (max-width:992px) {
+    article{
+        width: calc(50% - var(--main-gap));
+    }
+}
+
+@media screen and (max-width:768px) {
+    article {
+        width: 100%;
+    }
+}
